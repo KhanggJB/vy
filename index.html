@@ -77,84 +77,64 @@
 </div>
     </div>
     <div id="content">
-        
-        <div class="external">
-            <div class="horizontal-scroll-wrapper">
-              <div class="img-wrapper slower">
-                <a href="./assets/img/1.jpg" target="_blank" rel="noopener"><img src="./assets/img/1.jpg" alt="">
-                </a>
-              </div>
-          
-              <div class="img-wrapper faster">
-                <a href="./assets/img/2.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/2.jpg" alt="">
-                </a>
-              </div>
-          
-              <div class="img-wrapper slower vertical">
-                <a href="./assets/img/3.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/3.jpg" alt="">
-                </a>
-              </div>
-          
-              <div class="img-wrapper slower slower-down">
-                <a href="./assets/img/4.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/4.jpg" alt="">
-                </a>
-              </div>
-          
-              <div class="img-wrapper">
-                <a href="./assets/img/5.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/5.jpg" alt="">
-                </a>
-              </div>
-          
-              <div class="img-wrapper slower">
-                <a href="./assets/img/6.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/6.jpg" alt="">
-                </a>
-              </div>
-          
-              <div class="img-wrapper faster1">
-                <a href="./assets/img/7.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/7.jpg" alt="">
-                </a>
-              </div>
-              
-              <div class="img-wrapper slower slower2">
-                <a href="./assets/img/8.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/8.jpg" alt="">
-                </a>
-              </div>
-              
-              <div class="img-wrapper">
-                <a href="./assets/img/9.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/9.jpg" alt="">
-                </a>
-              </div>
-              
-              <div class="img-wrapper slower">
-                <a href="./assets/img/10.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/10.jpg" alt="">
-                </a>
-              </div>
-              
-              <div class="img-wrapper slower last">
-                <a href="./assets/img/11.jpg" target="_blank" rel="noopener">
-                  <img src="./assets/img/11.jpg" alt="">
-                </a>
-              </div>
-            </div>
-            
-        
-          </div>
-          
-          
-  </div>
-  
+ 
+      <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide" style="background-image: url(./assets/img/1.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/2.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/3.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/4.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/5.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/6.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/7.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/8.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/9.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/10.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./assets/img/11.jpg);">
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+      </div>
+      
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <h1>Thích quà nào click dô hình đó :></h1>
+    <div class="gift">
+      <img id="img1" onclick="img11()" src="./assets/img/trai.webp" alt="">
+      
+      <img id="img2" onclick="img22()" src="./assets/img/gold.jpg" alt="">
+      
+      <img id="img3" onclick="img33()" src="./assets/img/dubai.webp" alt="">
+      
+      <img id="img4" onclick="img44()" src="./assets/img/diamon.jpg" alt="">
+      
+    </div>
     </div>
     <div id="footer">
+
       <p id="khangg">
         copyright : khanhvy.ml <br>
         coder     : Khangg ( double +)
@@ -165,6 +145,7 @@
     
 </div>
 <script>
+  
     window.addEventListener("DOMContentLoaded", event => {
 const audio = document.querySelector("audio");
 audio.volume = 0.2;
@@ -189,8 +170,84 @@ icon.classList.add('fa-volume-mute');
 button.classList.add("fade");
 });
 
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+
+  // If we need pagination
+  // pagination: {
+  //   el: ".swiper-pagination"
+  // },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar"
+  }
+});
+
+var slides = document.querySelectorAll(".slide");
+var dots = document.querySelectorAll(".dot");
+var index = 0;
 
 
+function prevSlide(n){
+  index+=n;
+  console.log("prevSlide is called");
+  changeSlide();
+}
+
+function nextSlide(n){
+  index+=n;
+  changeSlide();
+}
+
+changeSlide();
+
+function changeSlide(){
+    
+  if(index>slides.length-1)
+    index=0;
+  
+  if(index<0)
+    index=slides.length-1;
+  
+  
+  
+    for(let i=0;i<slides.length;i++){
+      slides[i].style.display = "none";
+      
+      dots[i].classList.remove("active");
+      
+      
+    }
+    
+    slides[index].style.display = "block";
+    dots[index].classList.add("active");
+
+  
+
+}
+
+function img11() {
+        alert("Ảo tưởng à bé , bé chỉ hợp với 'Thiên Thần Bị Lãng Quên' thôi.");
+    }
+function img22() {
+        alert("Muốn có vàng ư? làm đỹ là dừa");
+    }  
+function img33() {
+        alert("Thích Dubai , hãy qua Dubai là người mẫu 🐧");
+    }
+function img44() {
+        alert("Trang sức đẹp chỉ hợp người đẹp , trang sức đẹp mà người xấu đeo thì vứt ~");
+    }
+        
 </script>
 </body>
 </html>
